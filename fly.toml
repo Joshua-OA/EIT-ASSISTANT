@@ -2,6 +2,7 @@ app = "joshuas-eit-assistant"
 primary_region = "lhr"
 
 [build]
+  dockerfile = "Dockerfile"
 
 [http_service]
   internal_port = 8080
