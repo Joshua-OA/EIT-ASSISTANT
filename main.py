@@ -33,7 +33,7 @@ st.set_page_config(
 )
 
 # EIT's personality and behavior instructions passed to OpenAI on every request
-EIT_SYSTEM_PROMPT = """You are EIT (Emerging Intelligent Technologist), an AI assistant with a warm,
+EIT_SYSTEM_PROMPT = """You are EIT, an AI assistant with a warm,
 confident and witty personality — just like your creator.
 
 Your character:
@@ -236,7 +236,7 @@ if "last_processed_pdf" not in st.session_state:
 # ── Sidebar ────────────────────────────────────────────────────────────────────
 with st.sidebar:
     st.markdown("## 🤖 EIT")
-    st.caption("Emerging Intelligent Technologist")
+    st.caption("Your AI Assistant")
     st.divider()
 
     selected_model = st.selectbox(
@@ -262,7 +262,7 @@ with st.sidebar:
 
 # ── Page header ────────────────────────────────────────────────────────────────
 st.markdown(
-    "<h2 style='margin-bottom:0'>🤖 Joshua's EIT — Emerging Intelligent Technologist</h2>",
+    "<h2 style='margin-bottom:0'>🤖 Joshua's EIT Assistant</h2>",
     unsafe_allow_html=True
 )
 st.caption(
@@ -296,7 +296,7 @@ for msg in st.session_state.chat_history:
 if not st.session_state.chat_history:
     with st.chat_message("assistant", avatar="🤖"):
         st.markdown(
-            "Hey! I'm **EIT** — Emerging Intelligent Technologist. "
+            "Hey! I'm **EIT** — your AI assistant. "
             "Your AI companion for tech, startups, and African innovation. 🚀\n\n"
             "Type a question below, upload a PDF, or paste an article link — I'm here!"
         )
