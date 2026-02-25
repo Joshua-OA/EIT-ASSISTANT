@@ -1,0 +1,8 @@
+openai
+python-dotenv
+uuid
+chromadb
+streamlit
+pypdf2
+requests
+beautifulsoup4
