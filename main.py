@@ -46,13 +46,18 @@ Your character:
 Always start your response with a short greeting or expression before diving in.
 """
 
-# Initialize ChromaDB in-memory vector store with default embeddings
+# Initialize ChromaDB in-memory vector store with OpenAI embeddings
+# Using OpenAI's API for embeddings instead of local sentence-transformers
+# to keep memory usage low on deployment (no heavy ML model loaded in RAM)
 chroma_client = chromadb.Client()
-default_ef = embedding_functions.DefaultEmbeddingFunction()
+openai_ef = embedding_functions.OpenAIEmbeddingFunction(
+    api_key=api_key,
+    model_name="text-embedding-3-small"
+)
 
 collection = chroma_client.get_or_create_collection(
     name="eit_knowledge_base",
-    embedding_function=default_ef
+    embedding_function=openai_ef
 )
 
 # Pre-load any .txt articles from the data folder into the knowledge base
