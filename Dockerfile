@@ -9,4 +9,7 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["streamlit", "run", "main.py", "--server.port=8080", "--server.address=0.0.0.0", "--server.headless=true"]
+# Create a 512MB swap file to help with memory pressure
+RUN fallocate -l 512M /swapfile && chmod 600 /swapfile && mkswap /swapfile
+
+CMD ["sh", "-c", "swapon /swapfile 2>/dev/null; streamlit run main.py --server.port=8080 --server.address=0.0.0.0 --server.headless=true"]
